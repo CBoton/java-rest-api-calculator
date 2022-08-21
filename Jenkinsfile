@@ -5,14 +5,12 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/CBoton/java-rest-api-calculator.git'
-                sh './mvnw clean compile'
-                // bat '.\\mvnw clean compile'
+                bat '.\\mvnw clean compile'
             }
         }
         stage('Test') {
             steps {
-                sh './mvnw test'
-                // bat '.\\mvnw test'
+                 bat '.\\mvnw test'
             }
 
             post {
@@ -23,8 +21,7 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                sh './mvnw package'
-                // bat '.\\mvnw package'
+                bat '.\\mvnw package'
             }
             post {
                 success {
